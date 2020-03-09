@@ -1,7 +1,7 @@
 # Java Game: Diagonal Dodge
 
-this is a simple, yet very complex game I made using my knowledge with java.
-ici est un jeux simple, mais aussi complexe que j'avais crée en utilisant mes connaissances avec java
+- this is a simple, yet very complex game I made using my knowledge with java.
+- ici est un jeux simple, mais aussi complexe que j'avais crée en utilisant mes connaissances avec java
 
 # Main game operators
 - Launcher.java is responsable for launching the game.
