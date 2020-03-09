@@ -15,7 +15,7 @@ public class Player extends Rectangle {
 
     WindowDisplay window;
 
-    boolean canControl = true, immortal = true;
+    boolean canControl = true, immortal = true, launchGame = true;
     PlayerTrail trail;
 
     int borderX, borderY;

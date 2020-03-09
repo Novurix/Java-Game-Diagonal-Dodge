@@ -1,14 +1,29 @@
 import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.Graphics;
+
 import javax.swing.JFrame;
+import javax.swing.ImageIcon;
+
+import java.awt.Toolkit;
 
 public class WindowDisplay extends JFrame {
 
     public static int width, height;
+    
     Screen screen;
+    Launcher launcher;
 
-    public WindowDisplay(int width, int height) {
+    boolean Visible;
+
+
+    ImageIcon icon;
+
+    public WindowDisplay(int width, int height, Launcher launcher, boolean Visible) {
+
+        this.Visible = Visible;
+
+        this.launcher = launcher;
 
         this.width = width;
         this.height = height;
@@ -20,6 +35,8 @@ public class WindowDisplay extends JFrame {
         setLocationRelativeTo(null);
         setBackground(Color.black);
 
+        icon = new ImageIcon("Logo.jpg");
+        setIconImage(icon.getImage());
 
         setGridLayout();
         draw();
@@ -30,7 +47,7 @@ public class WindowDisplay extends JFrame {
 
         screen = new Screen(this);
         add(screen);
-        setVisible(true);
+        setVisible(Visible);
     }
 
     public void draw() {

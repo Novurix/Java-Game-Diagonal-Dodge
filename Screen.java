@@ -79,6 +79,32 @@ public class Screen extends JPanel implements ActionListener, KeyListener, Mouse
                 enemies[i].tick();
             }
         }
+
+        if (!player.canControl) {
+            player = new Player(xPos,yPos,playerWidth,playerHeight,0,0,borderX,borderY);
+            for (int i = 0; i < enemies.length; i++) {
+                enemies[i] = null;
+            }
+
+            for (int i = 0; i < immortalPowerUps.length; i++) {
+                immortalPowerUps[i] = null;
+            }
+
+            for (int i = 0; i < speedPowerUps.length; i++) {
+                speedPowerUps[i] = null;
+            }
+
+            for (int i = 0; i < bullets.length; i++) {
+                bullets[i] = null;
+            }
+
+            immortalPowerUpIndexTimer = 0;
+
+            for (int i = 0; i < enemyStartQuantity; i++) {
+                enemies[i] = new Enemy(this);
+            }
+        }
+
         player.tick();
 
         for (int i = 0; i < bullets.length; i++) {
@@ -357,7 +383,12 @@ public class Screen extends JPanel implements ActionListener, KeyListener, Mouse
         for (int i = 0; i < enemies.length; i++) {
             if (enemies[i] != null && enemies[i].isAlive == true) {
                 if (enemies[i].bounds().intersects(obj1)) {
-                    Collide();
+                    if (player.immortal) {
+                        enemies[i].isAlive = false;
+                    }
+                    else {
+                        Collide();
+                    }
                 }
 
                 else {
